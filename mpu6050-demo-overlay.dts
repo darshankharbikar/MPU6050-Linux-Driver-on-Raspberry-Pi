@@ -1,0 +1,21 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2835", "brcm,bcm2711";
+
+    fragment@0 {
+        target = <&i2c1>;
+        __overlay__ {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            status = "okay";
+
+            mpu6050_custom: mpu6050@68 {
+                compatible = "custom,mpu6050";
+                reg = <0x68>;
+                status = "okay";
+            };
+        };
+    };
+};
